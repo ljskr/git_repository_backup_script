@@ -2,7 +2,9 @@
 
 此脚本是用于自动备份 git 仓库到其他服务器
 
-## 配置文件 config.ini
+## 1. 配置文件 
+
+### config.ini
 
 ```ini
 [common]
@@ -12,7 +14,7 @@ server_config_file=./remote_servers.txt  # 同步的目标服务器列表
 repo_config_file=./repositorys.txt  # 同步的源服务器列表
 ```
 
-## remote_servers.txt 
+### remote_servers.txt 
 
 目标服务器列表，需要自行填写，每行是 git remote add <alias_name> <remote_url> 所需要的两个参数。服务器地址建议用 ssh 方式，可以做到无需交互输入密码。
 
@@ -22,7 +24,7 @@ backup_one  git@github.com:account-one
 backup_two  git@bitbucket.org:account-two
 ```
 
-## repositorys.txt 
+### repositorys.txt 
 
 源服务器列表，需要自行填写，每行是一个待备份的 git 仓库地址。
 
@@ -33,13 +35,13 @@ git@github.com:yourname/repo2.git
 git@github.com:yourname/repo3.git
 ```
 
-## 运行方式
+## 2. 运行方式
 
 ```bash
 python3 backup.py
 ```
 
-## 执行原理
+## 3. 执行原理
 
 参考资料： https://help.github.com/articles/duplicating-a-repository/
 
