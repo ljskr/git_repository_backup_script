@@ -90,8 +90,10 @@ class GitRepository(object):
 class GitBackupManager(object):
     """
     负责备份 git 仓库。主要逻辑为：
-    1) clone 到本地： git clone --mirror <repo> <local_path>
+    1) 以镜像方式 clone 到本地： git clone --mirror <repo_url> <local_path>
     2) 拉取最新代码： git fetch -p origin
+    3) 添加远程备份服务器： git remote add <remote_name> <remote_url>
+    4) 提交到备份服务器： git push --mirror <remote_name>
     """
 
     def __init__(self, backup_dir):
