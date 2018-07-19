@@ -119,6 +119,7 @@ class GitBackupManager(object):
 
     def backup(self):
         logger.info("准备备份。 共 %d 个仓库。", len(self.repositorys))
+
         cur_index = 0
         for repo in self.repositorys:
             cur_index += 1
@@ -171,6 +172,7 @@ def read_backup_repositorys(file_name):
     with open(file_name, "r") as fh:
         lines = fh.readlines()
         for line in lines:
+            line = line.split()[0]
             repo = GitRepository(url=line)
             result.append(repo)
             logger.info("加载配置 repo '%s'", line)
